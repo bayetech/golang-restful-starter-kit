@@ -28,5 +28,5 @@ glide.lock
 coverage.out
 coverage-all.out
 server
-
-# vendor
+vendor
+golang-restful-starter-kit
