@@ -52,6 +52,8 @@ cd $GOPATH/qiangxue/golang-restful-starter-kit
 make depends   # or "glide up -v"
 ```
 
+# postgresql db setup
+
 Next, create a PostgreSQL database named `go_restful` and execute the SQL statements given in the file `testdata/db.sql`.
 The starter kit uses the following default database connection information:
 * server address: `127.0.0.1` (local machine)
@@ -68,6 +70,15 @@ postgres://<username>:<password>@<server-address>:<server-port>/<db-name>
 ```
 
 For more details about specifying a PostgreSQL DSN, please refer to [the documentation](https://godoc.org/github.com/lib/pq).
+
+# mysql db setup
+
+```bash
+mysql -u root
+CREATE DATABASE go_restful_dev;
+USE go_restful_dev;
+source testdata/db.sql;
+```
 
 Now you can build and run the application by running the following command under the
 `$GOPATH/qiangxue/golang-restful-starter-kit` directory:

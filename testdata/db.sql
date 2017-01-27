@@ -11,8 +11,7 @@ CREATE TABLE album
 (
     id SERIAL PRIMARY KEY,
     title VARCHAR(160)  NOT NULL,
-    artist_id INTEGER  NOT NULL,
-    FOREIGN KEY (artist_id) REFERENCES artist (id) ON DELETE CASCADE
+    artist_id INTEGER  NOT NULL
 );
 
 INSERT INTO artist (name) VALUES ('AC/DC');
