@@ -1,4 +1,4 @@
-package: github.com/qiangxue/golang-restful-starter-kit
+package: github.com/bayetech/golang-restful-starter-kit
 import:
 - package: github.com/Sirupsen/logrus
   version: ^0.10
