@@ -10,7 +10,7 @@ import (
 	"github.com/go-ozzo/ozzo-routing/auth"
 	"github.com/go-ozzo/ozzo-routing/content"
 	"github.com/go-ozzo/ozzo-routing/cors"
-	_ "github.com/lib/pq"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/bayetech/golang-restful-starter-kit/apis"
 	"github.com/bayetech/golang-restful-starter-kit/app"
 	"github.com/bayetech/golang-restful-starter-kit/daos"
@@ -33,7 +33,7 @@ func main() {
 	logger := logrus.New()
 
 	// connect to the database
-	db, err := dbx.MustOpen("postgres", app.Config.DSN)
+	db, err := dbx.MustOpen("mysql", app.Config.DSN)
 	if err != nil {
 		panic(err)
 	}
