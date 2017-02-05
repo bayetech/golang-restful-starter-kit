@@ -1,0 +1,16 @@
+{
+  "folders":
+  [
+    {
+      "path": ".",
+      "folder_exclude_patterns": [".git","tmp"],
+      "file_exclude_patterns": [".gitkeep","*.sublime-workspace","golang-restful-starter-kit","LICENSE",".DS_Store"]
+    }
+  ],
+    "settings":
+    {
+      "translate_tabs_to_spaces": false,
+      "trim_trailing_white_space_on_save": true,
+      "tab_size": 2
+    }
+}
