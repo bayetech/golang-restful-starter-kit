@@ -1,6 +1,6 @@
 # The Data Source Name for the database
 # Make sure you override this in production with the environment variable: RESTFUL_DSN
-dsn: "root:@unix(/tmp/mysql.sock)/go_restful_dev"
+dsn: "root:@unix(/tmp/mysql.sock)/baye_backend_dev"
 
 # These are secret keys used for JWT signing and verification.
 # Make sure you override these keys in production by the following environment variables:
