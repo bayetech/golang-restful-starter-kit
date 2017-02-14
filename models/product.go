@@ -4,6 +4,6 @@ package models
 
 // Artist represents an artist record.
 type Product struct {
-	Id   int    `json:"id" db:"id"`
-	Name string `json:"name" db:"name"`
+  Id   int    `json:"id" db:"id"`
+  Name string `json:"name" db:"name"`
 }

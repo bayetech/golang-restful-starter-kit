@@ -7,8 +7,8 @@ import (
 
 // productDAO specifies the interface of the product DAO needed by ProductService.
 type productDAO interface {
-  // Get returns the product with the specified the product ID.
   Get(rs app.RequestScope, id int) (*models.Product, error)
+  GetAll(rs app.RequestScope, category string) (*[]models.Product, error)
 }
 
 // ProductService provides services related with products.
@@ -23,4 +23,8 @@ func NewProductService(dao productDAO) *ProductService {
 // Get returns the product with the specified the product ID.
 func (s *ProductService) Get(rs app.RequestScope, id int) (*models.Product, error) {
   return s.dao.Get(rs, id)
+}
+
+func (s *ProductService) GetAll(rs app.RequestScope, category string) (*[]models.Product, error) {
+  return s.dao.GetAll(rs, category)
 }
