@@ -8,14 +8,14 @@ import (
 	"github.com/go-ozzo/ozzo-dbx"
 	"github.com/go-ozzo/ozzo-routing"
 	// "github.com/go-ozzo/ozzo-routing/auth"
-	"github.com/go-ozzo/ozzo-routing/content"
-	"github.com/go-ozzo/ozzo-routing/cors"
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/bayetech/golang-restful-starter-kit/apis"
 	"github.com/bayetech/golang-restful-starter-kit/app"
 	"github.com/bayetech/golang-restful-starter-kit/daos"
 	"github.com/bayetech/golang-restful-starter-kit/errors"
 	"github.com/bayetech/golang-restful-starter-kit/services"
+	"github.com/go-ozzo/ozzo-routing/content"
+	"github.com/go-ozzo/ozzo-routing/cors"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
@@ -52,7 +52,7 @@ func buildRouter(logger *logrus.Logger, db *dbx.DB) *routing.Router {
 	router := routing.New()
 
 	router.To("GET,HEAD", "/ping", func(c *routing.Context) error {
-		c.Abort()  // skip all other middlewares/handlers
+		c.Abort() // skip all other middlewares/handlers
 		return c.Write("OK " + app.Version)
 	})
 
@@ -74,6 +74,9 @@ func buildRouter(logger *logrus.Logger, db *dbx.DB) *routing.Router {
 
 	productDAO := daos.NewProductDAO()
 	apis.ServeProductResource(rg, services.NewProductService(productDAO))
+
+	slideDAO := daos.NewSlideDAO()
+	apis.ServeSlideResource(rg, services.NewSlideService(slideDAO))
 
 	// wire up more resource APIs here
 
