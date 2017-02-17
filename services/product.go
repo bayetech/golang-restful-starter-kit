@@ -1,30 +1,30 @@
 package services
 
 import (
-  "github.com/bayetech/golang-restful-starter-kit/app"
-  "github.com/bayetech/golang-restful-starter-kit/models"
+	"github.com/bayetech/golang-restful-starter-kit/app"
+	"github.com/bayetech/golang-restful-starter-kit/models"
 )
 
 // productDAO specifies the interface of the product DAO needed by ProductService.
 type productDAO interface {
-  Get(rs app.RequestScope, id int) (*models.Product, error)
-  GetAll(rs app.RequestScope, category string) (*[]models.Product, error)
+	Get(rs app.RequestScope, id int) (*models.Product, error)
+	GetAll(rs app.RequestScope) (*[]models.Product, error)
 }
 
 // ProductService provides services related with products.
 type ProductService struct {
-  dao productDAO
+	dao productDAO
 }
 
 func NewProductService(dao productDAO) *ProductService {
-  return &ProductService{dao}
+	return &ProductService{dao}
 }
 
 // Get returns the product with the specified the product ID.
 func (s *ProductService) Get(rs app.RequestScope, id int) (*models.Product, error) {
-  return s.dao.Get(rs, id)
+	return s.dao.Get(rs, id)
 }
 
-func (s *ProductService) GetAll(rs app.RequestScope, category string) (*[]models.Product, error) {
-  return s.dao.GetAll(rs, category)
+func (s *ProductService) GetAll(rs app.RequestScope) (*[]models.Product, error) {
+	return s.dao.GetAll(rs)
 }
