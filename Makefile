@@ -5,9 +5,6 @@ LDFLAGS:=-ldflags "-X github.com/bayetech/golang-restful-starter-kit/app.Version
 
 default: run
 
-depends:
-	../../../../bin/glide up
-
 test:
 	echo "mode: count" > coverage-all.out
 	$(foreach pkg,$(PACKAGES), \

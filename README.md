@@ -42,14 +42,14 @@ After installing Go, run the following commands to download and install this sta
 
 ```shell
 # install the starter kit
-go get github.com/qiangxue/golang-restful-starter-kit
+go get github.com/bayetech/golang-restful-starter-kit
 
 # install glide (a vendoring and dependency management tool), if you don't have it yet
-go get -u github.com/Masterminds/glide
+brew install glide
 
 # fetch the dependent packages
-cd $GOPATH/qiangxue/golang-restful-starter-kit
-make depends   # or "glide up -v"
+cd $GOPATH/src/github.com/bayetech/golang-restful-starter-kit
+glide up -v
 ```
 
 # postgresql db setup
@@ -81,7 +81,7 @@ source testdata/db.sql;
 ```
 
 Now you can build and run the application by running the following command under the
-`$GOPATH/qiangxue/golang-restful-starter-kit` directory:
+`$GOPATH/bayekeji/golang-restful-starter-kit` directory:
 
 ```shell
 go run server.go
