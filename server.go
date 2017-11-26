@@ -7,7 +7,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/go-ozzo/ozzo-dbx"
 	"github.com/go-ozzo/ozzo-routing"
-	// "github.com/go-ozzo/ozzo-routing/auth"
+	"github.com/go-ozzo/ozzo-routing/auth"
 	"github.com/bayetech/golang-restful-starter-kit/apis"
 	"github.com/bayetech/golang-restful-starter-kit/app"
 	"github.com/bayetech/golang-restful-starter-kit/daos"
@@ -68,6 +68,12 @@ func buildRouter(logger *logrus.Logger, db *dbx.DB) *routing.Router {
 	)
 
 	rg := router.Group("/v1")
+
+	rg.Post("/auth", apis.Auth(app.Config.JWTSigningKey))
+	rg.Use(auth.JWT(app.Config.JWTVerificationKey, auth.JWTOptions{
+		SigningMethod: app.Config.JWTSigningMethod,
+		TokenHandler:  apis.JWTHandler,
+	}))
 
 	artistDAO := daos.NewArtistDAO()
 	apis.ServeArtistResource(rg, services.NewArtistService(artistDAO))
